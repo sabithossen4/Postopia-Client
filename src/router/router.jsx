@@ -7,6 +7,7 @@ import About from "../pages/About";
 import PrivateRoute from "../context/PrivateRoute";
 import CreatePost from "../pages/CreatePost";
 import PostDetails from "../pages/PostDetails";
+import Leaderboard from "../pages/Leaderboard";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
         path: "/post/:id",
         element: <PostDetails />,
       },
+      {
+  path: '/leaderboard',
+  element: <Leaderboard />
+},
     ],
   },
 ]);

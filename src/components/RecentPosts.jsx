@@ -18,7 +18,7 @@ const RecentPosts = () => {
         {posts.map((post) => (
           <div
             key={post._id}
-            className="p-4 border border-gray-300  rounded-lg shadow hover:shadow-md transition flex flex-col justify-between"
+            className="p-4 border border-gray-300 rounded-lg shadow hover:shadow-md transition flex flex-col justify-between"
           >
             <div>
               <h3 className="text-xl font-semibold ">{post.title}</h3>
@@ -29,7 +29,8 @@ const RecentPosts = () => {
                 ))}
               </div>
             </div>
-            <div className="flex justify-end">
+            <div className="flex items-center justify-between mt-2">
+              <span className="text-sm text-gray-500">❤️ {post.totalLiked || 0}</span>
               <Link to={`/post/${post._id}`}>
                 <button className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">
                   Details
