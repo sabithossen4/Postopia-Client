@@ -24,6 +24,18 @@ const Navbar = () => {
       <li className="font-bold">
         <NavLink to="/membership">Membership</NavLink>
       </li>
+
+      <li className="font-bold">
+        {user && (
+  <NavLink to="/create-post" >
+    Add Post
+  </NavLink>
+)}
+
+      </li>
+      <li className="font-bold">
+        <NavLink to="/about">About</NavLink>
+      </li>
     </>
   );
 

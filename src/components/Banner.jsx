@@ -41,9 +41,9 @@ const Banner = () => {
             <h2 className="text-xl font-semibold mb-2">Search Results:</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {results.map((post) => (
-                <div key={post._id} className="p-4 bg-white shadow rounded-md">
+                <div key={post._id} className="p-4 shadow rounded-md">
                   <h3 className="text-lg font-bold">{post.title}</h3>
-                  <p className="text-sm text-gray-600">Tags: {post.tags?.join(', ')}</p>
+                  <p className="text-sm ">Tags: {post.tags?.join(', ')}</p>
                   <p className="text-sm">Posted by: {post.authorName}</p>
                 </div>
               ))}
