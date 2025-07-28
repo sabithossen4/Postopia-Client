@@ -78,7 +78,9 @@ export const router = createBrowserRouter([
       },
       {
         path: "/post/:postId/comments",
-        element: <CommentsPage />,
+        element: <PrivateRoute>
+          <CommentsPage />
+        </PrivateRoute>,
       },
     ],
   },

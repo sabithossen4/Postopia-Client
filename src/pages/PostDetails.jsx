@@ -6,6 +6,7 @@ import { FaRegComment, FaShare } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../context/AuthProvider';
 import VoteButton from '../components/VoteButton';
+import Loading from './Loading';
 
 const PostDetails = () => {
   const { id } = useParams();
@@ -56,7 +57,7 @@ const PostDetails = () => {
     }
   };
 
-  if (!post) return <div className="text-center my-10">Loading...</div>;
+  if (!post) return <div className="text-center my-10"><Loading></Loading></div>;
 
   return (
     <div className="max-w-3xl mx-auto p-4">
@@ -152,7 +153,7 @@ const PostDetails = () => {
           </form>
         ) : (
           <div className="mb-6 text-center">
-            <Link to="/login" className="text-blue-500 hover:underline">
+            <Link to="/joinUs" className="text-blue-500 hover:underline">
               Login to comment
             </Link>
           </div>
