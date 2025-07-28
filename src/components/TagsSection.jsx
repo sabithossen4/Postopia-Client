@@ -1,31 +1,30 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router';
 
-const TagsSection = ({ onTagClick }) => {
+const TagsSection = () => {
   const [tags, setTags] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchTags = async () => {
-      try {
-        const { data } = await axios.get('http://localhost:3000/tags');
-        setTags(data);
-      } catch (error) {
-        console.error('Failed to load tags:', error);
-      }
-    };
-
-    fetchTags();
+    axios.get('http://localhost:3000/tags')
+      .then(res => setTags(res.data))
+      .catch(err => console.error(err));
   }, []);
 
+  const handleTagClick = (tag) => {
+    navigate(`/tags/${tag}`);
+  };
+
   return (
-    <div className="mt-10">
-      <h2 className="text-xl font-semibold mb-2">All Tags:</h2>
-      <div className="flex flex-wrap gap-2">
+    <div className="my-8 px-4">
+      <h2 className="text-2xl font-bold mb-4 text-center">Explore Tags</h2>
+      <div className="flex flex-wrap gap-3">
         {tags.map((tag, idx) => (
           <button
             key={idx}
-            onClick={() => onTagClick(tag)}
-            className="badge badge-outline cursor-pointer hover:bg-primary hover:text-white transition"
+            onClick={() => handleTagClick(tag)}
+            className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full hover:bg-blue-200 transition"
           >
             #{tag}
           </button>

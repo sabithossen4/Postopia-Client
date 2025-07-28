@@ -1,42 +1,34 @@
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
+import VoteButton from './VoteButton';
+
 
 const RecentPosts = () => {
-  const [posts, setPosts] = useState([]);
+  const [recent, setRecent] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/posts/recent')
-      .then(res => setPosts(res.data))
-      .catch(err => console.error(err));
+    axios.get('http://localhost:3000/posts/recent').then((res) => {
+      setRecent(res.data);
+    });
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 my-10">
-      <h2 className="text-2xl font-bold mb-6 ">🕒 Recent Posts</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {posts.map((post) => (
-          <div
-            key={post._id}
-            className="p-4 border border-gray-300 rounded-lg shadow hover:shadow-md transition flex flex-col justify-between"
-          >
-            <div>
-              <h3 className="text-xl font-semibold ">{post.title}</h3>
-              <p className=" text-sm my-2">{post.summary}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {post.tags?.map((tag, i) => (
-                  <span key={i} className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">#{tag}</span>
-                ))}
-              </div>
-            </div>
-            <div className="flex items-center justify-between mt-2">
-              <span className="text-sm text-gray-500">❤️ {post.totalLiked || 0}</span>
-              <Link to={`/post/${post._id}`}>
-                <button className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">
-                  Details
-                </button>
-              </Link>
-            </div>
+    <div className="my-8">
+      <h2 className="text-2xl font-bold mb-4">🆕 Recent Posts</h2>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {recent.map((post) => (
+          <div key={post._id} className="border p-4 rounded shadow">
+            <h3 className="text-lg font-semibold mb-2">{post.title}</h3>
+            <p>{post.summary}</p>
+            <p className="mt-2 text-sm text-gray-500">Tags: {post.tags.join(', ')}</p>
+            <Link
+              to={`/post/${post._id}`}
+              className="inline-block mt-2 text-blue-500 underline"
+            >
+              View Details
+            </Link>
+            <VoteButton postId={post._id} initialVotes={post.totalLiked} />
           </div>
         ))}
       </div>

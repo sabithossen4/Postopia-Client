@@ -1,50 +1,35 @@
-import  { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const TagFilterPosts = () => {
-  const [tags, setTags] = useState([]);
-  const [selectedTag, setSelectedTag] = useState('');
+  const { tag } = useParams();
   const [posts, setPosts] = useState([]);
 
-  // fetch all tags from backend (you already have this in AllTags)
   useEffect(() => {
-    axios.get('http://localhost:3000/posts/tags')
-      .then(res => setTags(res.data))
-      .catch(err => console.error('Tag fetch error:', err));
-  }, []);
-
-  const handleTagClick = (tag) => {
-    setSelectedTag(tag);
-    axios.get(`http://localhost:3000/posts/byTag/${tag}`)
+    axios.get(`http://localhost:3000/posts/search?tag=${tag}`)
       .then(res => setPosts(res.data))
-      .catch(err => console.error('Post fetch error:', err));
-  };
+      .catch(err => console.error(err));
+  }, [tag]);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 mt-10 space-y-6">
-      <h2 className="text-2xl font-bold">🔎 Filter by Tag</h2>
-      <div className="flex flex-wrap gap-2">
-        {tags.map((tag, idx) => (
-          <button
-            key={idx}
-            className={`btn btn-sm ${selectedTag === tag ? 'btn-primary' : 'btn-outline'}`}
-            onClick={() => handleTagClick(tag)}
-          >
-            {tag}
-          </button>
-        ))}
-      </div>
-
-      {/* Posts of Selected Tag */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-        {posts.map((post) => (
-          <div key={post._id} className="p-4 bg-base-100 rounded shadow">
-            <h3 className="text-lg font-semibold">{post.title}</h3>
-            <p className="text-sm text-gray-500">Tags: {post.tags?.join(', ')}</p>
-            <p className="text-sm">Author: {post.authorName}</p>
-          </div>
-        ))}
-      </div>
+    <div className="p-4">
+      <h2 className="text-xl font-semibold mb-4">Posts Tagged with: #{tag}</h2>
+      {posts.length === 0 ? (
+        <p>No posts found.</p>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {posts.map(post => (
+            <div key={post._id} className="border p-4 rounded shadow">
+              <h3 className="text-lg font-bold">{post.title}</h3>
+              <p>{post.summary}</p>
+              <div className="mt-2 text-sm text-gray-500">
+                Tags: {post.tags?.map((t, i) => <span key={i}>#{t} </span>)}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

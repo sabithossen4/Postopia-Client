@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../context/AuthProvider";
 import { toast } from "react-toastify";
+import NotificationBell from "./NotificationBell";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -23,17 +24,13 @@ const Navbar = () => {
       </li>
       <li className="font-bold">
         <NavLink to="/membership">Membership</NavLink>
-      </li>
-
-      <li className="font-bold">
-        {user && <NavLink to="/create-post">Add Post</NavLink>}
-      </li>
+      </li>      
       <li className="font-bold">
         <NavLink to="/leaderboard" >Leaderboard</NavLink>
-      </li>
+      </li>     
       <li className="font-bold">
-        <NavLink to="/about">About</NavLink>
-      </li>
+        <NavLink to="/admin">AdminDashboard</NavLink>
+      </li>      
     </>
   );
 
@@ -68,7 +65,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost text-xl font-bold">
-            ForumHub
+            Postopia
           </Link>
         </div>
 
@@ -85,8 +82,10 @@ const Navbar = () => {
             data-tip="Notifications"
           >
             <button className="btn btn-ghost btn-circle">
-              <span className="material-icons">notifications</span>
-              <div className="badge badge-sm badge-error absolute -top-1 -right-1">
+              <span className=""><NotificationBell /></span>
+              
+              
+              <div className="badge badge-secondary badge-error absolute -top-1 -right-1">
                 2
               </div>
             </button>
@@ -136,12 +135,9 @@ const Navbar = () => {
             </div>
           ) : (
             <div className="flex gap-2 items-center">
-              <Link to="/register" className="btn btn-sm font-bold">
+              <Link to="/joinUs" className="btn btn-sm font-bold">
                 Join Us
-              </Link>
-              <Link to="/login" className="btn btn-outline btn-sm">
-                Login
-              </Link>
+              </Link>              
             </div>
           )}
         </div>
