@@ -8,7 +8,7 @@ const RecentPosts = () => {
   const [recent, setRecent] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/posts/recent').then((res) => {
+    axios.get('https://assignment-12-server-sigma-red.vercel.app/posts/recent').then((res) => {
       setRecent(res.data);
     });
   }, []);

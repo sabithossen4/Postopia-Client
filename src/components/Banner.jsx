@@ -9,7 +9,7 @@ const Banner = () => {
     e.preventDefault();
     try {
       const { data } = await axios.get(
-        `http://localhost:3000/posts/search?tag=${search}`
+        `https://assignment-12-server-sigma-red.vercel.app/posts/search?tag=${search}`
       );
       setResults(data);
     } catch (error) {
@@ -21,7 +21,7 @@ const Banner = () => {
     <div className="max-w-6xl mx-auto px-4 mt-6 space-y-8">
       {/*  Banner + Search */}
       <div className="bg-base-200 p-10 rounded-lg shadow-md">
-        <h1 className="text-3xl font-bold mb-4 text-center">Welcome to ForumHub</h1>
+        <h1 className="text-3xl font-bold mb-4 text-center">Welcome to Postopia</h1>
         <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-3 justify-center">
           <input
             type="text"
@@ -30,7 +30,7 @@ const Banner = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <button type="submit" className="btn btn-primary">Search</button>
+          <button type="submit" className="btn bg-purple-700">Search</button>
         </form>
       </div>
 
@@ -38,7 +38,7 @@ const Banner = () => {
       <div>
         {results.length > 0 && (
           <>
-            <h2 className="text-xl font-semibold mb-2">Search Results:</h2>
+            <h2 className="text-xl font-semibold mb-2 ">Search Results:</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {results.map((post) => (
                 <div key={post._id} className="p-4 shadow rounded-md">

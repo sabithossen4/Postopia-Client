@@ -7,7 +7,7 @@ const NotificationBell = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/announcements')
+    axios.get('https://assignment-12-server-sigma-red.vercel.app/announcements')
       .then(res => setCount(res.data.length))
       .catch(err => console.error(err));
   }, []);

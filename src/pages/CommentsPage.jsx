@@ -24,7 +24,7 @@ const CommentsPage = () => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/comments/${postId}`);
+        const res = await axios.get(`https://assignment-12-server-sigma-red.vercel.app/comments/${postId}`);
         setComments(res.data);
       } catch (error) {
         console.error('কমেন্ট লোড করতে সমস্যা:', error);
@@ -50,7 +50,7 @@ const CommentsPage = () => {
     if (!selectedFeedback[commentId]) return;
 
     try {
-      await axios.post(`http://localhost:3000/comments/${commentId}/report`, {
+      await axios.post(`https://assignment-12-server-sigma-red.vercel.app/comments/${commentId}/report`, {
         reporterEmail: user.email,
         feedback: selectedFeedback[commentId]
       });

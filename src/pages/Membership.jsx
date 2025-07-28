@@ -22,7 +22,7 @@ const Membership = () => {
       
       // Update user membership status in backend
       const res = await axios.patch(
-        `http://localhost:3000/users/membership/${user.email}`,
+        `https://assignment-12-server-sigma-red.vercel.app/users/membership/${user.email}`,
         {},
         {
           headers: {

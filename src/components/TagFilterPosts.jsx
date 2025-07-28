@@ -7,7 +7,7 @@ const TagFilterPosts = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/posts/search?tag=${tag}`)
+    axios.get(`https://assignment-12-server-sigma-red.vercel.app/posts/search?tag=${tag}`)
       .then(res => setPosts(res.data))
       .catch(err => console.error(err));
   }, [tag]);

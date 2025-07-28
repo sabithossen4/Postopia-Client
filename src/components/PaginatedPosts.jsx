@@ -13,7 +13,7 @@ const PaginatedPosts = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/posts?page=${currentPage}&sort=${sortBy}`)
+      .get(`https://assignment-12-server-sigma-red.vercel.app/posts?page=${currentPage}&sort=${sortBy}`)
       .then((res) => {
         setPosts(res.data.posts);
         setTotalCount(res.data.totalCount);

@@ -11,7 +11,7 @@ const CommentSection = ({ postId }) => {
 
   // Load all comments for this post
   useEffect(() => {
-    axios.get(`http://localhost:3000/comments/post/${postId}`).then((res) => {
+    axios.get(`https://assignment-12-server-sigma-red.vercel.app/comments/post/${postId}`).then((res) => {
       setComments(res.data);
     });
   }, [postId]);
@@ -20,7 +20,7 @@ const CommentSection = ({ postId }) => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`http://localhost:3000/users/membership-status/${user.email}`)
+        .get(`https://assignment-12-server-sigma-red.vercel.app/users/membership-status/${user.email}`)
         .then((res) => setIsMember(res.data.isMember));
     }
   }, [user]);
@@ -41,7 +41,7 @@ const CommentSection = ({ postId }) => {
         commentText,
         createdAt: new Date(),
       };
-      await axios.post('http://localhost:3000/comments', newComment);
+      await axios.post('https://assignment-12-server-sigma-red.vercel.app/comments', newComment);
       setComments((prev) => [newComment, ...prev]);
       setCommentText('');
     } catch (error) {

@@ -5,7 +5,7 @@ const Leaderboard = () => {
   const [topUsers, setTopUsers] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/users/top-voted').then((res) => {
+    axios.get('https://assignment-12-server-sigma-red.vercel.app/users/top-voted').then((res) => {
       setTopUsers(res.data);
     });
   }, []);

@@ -9,7 +9,7 @@ const Pagination = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get(`http://localhost:3000/posts?page=${page}&limit=${limit}`);
+      const res = await axios.get(`https://assignment-12-server-sigma-red.vercel.app/posts?page=${page}&limit=${limit}`);
       setPosts(res.data.posts);
       setTotalPosts(res.data.totalPosts);
     };

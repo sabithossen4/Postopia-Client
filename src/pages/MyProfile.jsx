@@ -19,8 +19,8 @@ const MyProfile = () => {
       if (user?.email) {
         try {
           const [postsRes, statsRes] = await Promise.all([
-            axios.get(`http://localhost:3000/my-posts/${user.email}`),
-            axios.get(`http://localhost:3000/user-profile/${user.email}`)
+            axios.get(`https://assignment-12-server-sigma-red.vercel.app/my-posts/${user.email}`),
+            axios.get(`https://assignment-12-server-sigma-red.vercel.app/user-profile/${user.email}`)
           ]);
 
           setRecentPosts(postsRes.data.slice(0, 3)); // সর্বশেষ ৩টি পোস্ট

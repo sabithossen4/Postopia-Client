@@ -15,7 +15,7 @@ const MyPosts = () => {
     const fetchPosts = async () => {
       if (user?.email) {
         try {
-          const res = await axios.get(`http://localhost:3000/my-posts/${user.email}`);
+          const res = await axios.get(`https://assignment-12-server-sigma-red.vercel.app/my-posts/${user.email}`);
           setPosts(res.data);
         } catch (error) {
           console.error('Error fetching posts:', error);
@@ -42,7 +42,7 @@ const MyPosts = () => {
       });
 
       if (result.isConfirmed) {
-        await axios.delete(`http://localhost:3000/my-posts/${postId}`, {
+        await axios.delete(`https://assignment-12-server-sigma-red.vercel.app/my-posts/${postId}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }

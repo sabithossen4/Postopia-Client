@@ -24,8 +24,8 @@ const AddPost = () => {
       try {
         if (user?.email) {
           const [tagsRes, countRes] = await Promise.all([
-            axios.get('http://localhost:3000/tags'),
-            axios.get(`http://localhost:3000/user-post-count/${user.email}`)
+            axios.get('https://assignment-12-server-sigma-red.vercel.app/tags'),
+            axios.get(`https://assignment-12-server-sigma-red.vercel.app/user-post-count/${user.email}`)
           ]);
           
           setTags(tagsRes.data.map(tag => ({ value: tag, label: `#${tag}` })));
@@ -77,7 +77,7 @@ const AddPost = () => {
         createdAt: new Date()
       };
 
-      await axios.post('http://localhost:3000/posts', post);
+      await axios.post('https://assignment-12-server-sigma-red.vercel.app/posts', post);
       
       Swal.fire(
         'Success!',

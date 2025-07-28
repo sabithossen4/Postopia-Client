@@ -5,7 +5,7 @@ const PopularPosts = () => {
   const [popularPosts, setPopularPosts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/posts/popular')
+    axios.get('https://assignment-12-server-sigma-red.vercel.app/posts/popular')
       .then(res => setPopularPosts(res.data))
       .catch(err => console.error(err));
   }, []);

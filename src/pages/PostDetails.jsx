@@ -18,10 +18,10 @@ const PostDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const postRes = await axios.get(`http://localhost:3000/posts/${id}`);
+        const postRes = await axios.get(`https://assignment-12-server-sigma-red.vercel.app/posts/${id}`);
         setPost(postRes.data);
         
-        const commentsRes = await axios.get(`http://localhost:3000/comments/${id}`);
+        const commentsRes = await axios.get(`https://assignment-12-server-sigma-red.vercel.app/comments/${id}`);
         setComments(commentsRes.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -47,7 +47,7 @@ const PostDetails = () => {
         createdAt: new Date()
       };
 
-      await axios.post('http://localhost:3000/comments', comment);
+      await axios.post('https://assignment-12-server-sigma-red.vercel.app/comments', comment);
       setComments([...comments, comment]);
       setNewComment('');
     } catch (error) {

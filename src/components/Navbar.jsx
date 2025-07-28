@@ -64,7 +64,7 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost text-xl font-bold">
+          <Link to="/" className="btn text-purple-700 btn-ghost text-4xl font-bold">
             Postopia
           </Link>
         </div>
@@ -118,7 +118,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/dashboard"
-                    className="btn btn-sm btn-primary w-full"
+                    className="btn btn-sm btn-primary w-full "
                   >
                     Dashboard
                   </Link>

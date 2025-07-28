@@ -35,7 +35,7 @@ const VoteButton = ({ postId, initialLikes, initialDislikes }) => {
         }
       }
 
-      await axios.patch(`http://localhost:3000/posts/${postId}/vote`, {
+      await axios.patch(`https://assignment-12-server-sigma-red.vercel.app/posts/${postId}/vote`, {
         likeChange,
         dislikeChange
       });
@@ -74,7 +74,7 @@ const VoteButton = ({ postId, initialLikes, initialDislikes }) => {
         }
       }
 
-      await axios.patch(`http://localhost:3000/posts/${postId}/vote`, {
+      await axios.patch(`https://assignment-12-server-sigma-red.vercel.app/posts/${postId}/vote`, {
         likeChange,
         dislikeChange
       });
