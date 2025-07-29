@@ -70,13 +70,13 @@ const PaginatedPosts = () => {
               {/* Title Link */}
               <Link
                 to={`/post/${post._id}`}
-                className="text-lg font-bold hover:underline block mb-2"
+                className="text-2xl font-bold hover:underline block mb-2"
               >
                 {post.title}
               </Link>
 
               {/* Tags */}
-              <p className="text-sm text-blue-400 mb-2">
+              <p className="text-sm text-purple-500 mb-2">
                 #{post.tags?.[0] || "General"}
               </p>
 

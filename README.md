@@ -1,12 +1,71 @@
-# React + Vite
+# 🧠 Postopia - MERN Stack Forum App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Project Name:
+**Postopia - A Forum-Based Community Web Application**
 
-Currently, two official plugins are available:
+## 🎯 Project Purpose:
+The main purpose of this project is to create a community forum platform where users can ask questions, post answers, vote on posts, and gain extra privileges through membership. It is a full-fledged MERN (MongoDB, Express.js, React.js, Node.js) stack project aimed at helping developers understand full-stack development.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Site:
+🔗 [https://assignment-12-63f83.web.app/]
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Key Features:
+
+### ✅ User Features:
+- 🔐 **Authentication** (Login/Register using Firebase)
+- 📝 **Create Post** (Regular users can post up to 5 times, members can post unlimited)
+- 🔍 **Search & Filter by Tags**
+- 👍 **Vote System** (Upvote/Downvote functionality)
+- 💬 **Comment System**
+- 🏅 **Badge System** (Gold badge for members)
+- 🛒 **Membership Purchase (Private Route)**
+
+### 🧑‍💼 Admin Features:
+- 🔓 **Admin Login & Route Protection**
+- 🧑‍🤝‍🧑 **User Management** (Promote/Demote users)
+- 📣 **Create Announcements**
+- 🚫 **Report Management** (Handle reported posts/comments)
+
+### 📊 Extra Functionalities:
+- 📈 **Leaderboard Page**
+- 🏷️ **Tag-wise Post Browsing**
+- 🔄 **Paginated Posts**
+- 📢 **Announcements Section**
+- 🎨 **Fully Responsive Design**
+
+---
+
+## 📦 Used NPM Packages:
+
+### 🔧 Frontend:
+- `react`
+- `react-router`
+- `axios`
+- `firebase`
+- `sweetalert2`
+- `react-icons`
+- `tailwindcss`
+- `daisyui`
+- `moment`
+- `react-hook-form`
+- `react-hot-toast` *(optional)*
+
+### ⚙️ Backend:
+- `express`
+- `cors`
+- `dotenv`
+- `mongodb`
+- `nodemon`
+
+---
+
+## 🧑‍💻 Technologies Used:
+- **Frontend:** React.js, Tailwind CSS, Firebase Authentication  
+- **Backend:** Node.js, Express.js, MongoDB  
+- **Deployment:** Vercel (Client), Render (Server)
+
+---
+
+## 🔐 Admin Credentials (Demo Only):

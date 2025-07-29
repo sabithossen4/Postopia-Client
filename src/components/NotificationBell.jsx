@@ -14,9 +14,9 @@ const NotificationBell = () => {
 
   return (
     <div className="relative">
-      <FiBell className="w-6 h-6 text-gray-700" />
+      <FiBell className="w-6 h-6 " />
       {count > 0 && (
-        <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-1 rounded-full">
+        <span className="absolute -top-1 -right-1 bg-purple-700 text-white text-xs px-1 rounded-full">
           {count}
         </span>
       )}

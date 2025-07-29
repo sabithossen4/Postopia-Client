@@ -21,17 +21,17 @@ const Navbar = () => {
 
   const navLinks = (
     <>
-      <li className="font-bold">
+      <li className="font-bold text-[15px]">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li className="font-bold">
+      <li className="font-bold text-[15px]">
         <NavLink to="/membership">Membership</NavLink>
       </li>      
-      <li className="font-bold">
+      <li className="font-bold text-[15px]">
         <NavLink to="/leaderboard" >Leaderboard</NavLink>
       </li>           
       {user && isAdmin && (
-  <li className="font-bold"><NavLink to="/admin">AdminDashboard</NavLink></li>
+  <li className="font-bold text-[15px]"><NavLink to="/admin">AdminDashboard</NavLink></li>
 )}
     
     </>
@@ -67,7 +67,7 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <Link to="/" className="btn text-purple-700 btn-ghost text-4xl font-bold">
+          <Link to="/" className="btn text-purple-600 btn-ghost text-4xl font-bold">
             Postopia
           </Link>
         </div>
@@ -85,12 +85,7 @@ const Navbar = () => {
             data-tip="Notifications"
           >
             <button className="btn btn-ghost btn-circle">
-              <span className=""><NotificationBell /></span>
-              
-              
-              <div className="badge badge-secondary badge-error absolute -top-1 -right-1">
-                2
-              </div>
+              <span className=""><NotificationBell /></span>   
             </button>
           </div>
 
