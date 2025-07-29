@@ -7,6 +7,7 @@ import Announcements from '../components/Announcements';
 const Home = () => {  
   return (
     <div>
+      <title>Postopia</title>
       <Banner></Banner>  
        <TagsSection ></TagsSection>
        <Announcements></Announcements>

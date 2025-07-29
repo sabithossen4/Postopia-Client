@@ -19,6 +19,7 @@ import AdminProfile from "../pages/AdminProfile";
 import ManageUsers from "../pages/ManageUsers";
 import ReportedComments from "../pages/ReportedComments";
 import MakeAnnouncement from "../pages/MakeAnnouncement";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -40,9 +41,9 @@ export const router = createBrowserRouter([
       {
         path: "/admin",
         element: (
-          <PrivateRoute>
-            <AdminDashboard />
-          </PrivateRoute>
+             <AdminRoute>
+                <AdminDashboard />
+             </AdminRoute>          
         ),
         children: [
           {
