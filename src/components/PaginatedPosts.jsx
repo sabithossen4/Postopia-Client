@@ -50,7 +50,7 @@ const PaginatedPosts = () => {
           {posts.map((post) => (
             <div
               key={post._id}
-              className="border border-purple-600 rounded-md p-4 bg-[#111827] shadow hover:shadow-lg transition"
+              className="border border-purple-600 rounded-md p-4  shadow hover:shadow-lg transition"
             >
               {/* Author Info */}
               <div className="flex items-center gap-2 mb-2">

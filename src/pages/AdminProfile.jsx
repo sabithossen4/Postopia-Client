@@ -113,13 +113,13 @@ const AdminProfile = () => {
         </div>
 
         {/* Admin Profile Card */}
-        <div className="bg-white  rounded-xl shadow-md overflow-hidden mb-8">
+        <div className="border border-gray-200 rounded-xl shadow-md overflow-hidden mb-8">
           <div className="p-6">
             <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-              <div className="w-24 h-24 rounded-full bg-gray-200 overflow-hidden">
+              <div className="border border-gray-200 w-24 h-24 rounded-full  overflow-hidden ">
                 <img 
                   src={adminStats?.admin?.photoURL || '/default-avatar.png'} 
-                  alt="Admin" 
+                  alt="Image" 
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -137,7 +137,7 @@ const AdminProfile = () => {
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {/* Posts Card */}
-          <div className="bg-white rounded-xl shadow-md overflow-hidden">
+          <div className="border border-white rounded-xl shadow-md overflow-hidden">
             <div className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -154,7 +154,7 @@ const AdminProfile = () => {
           </div>
 
           {/* Comments Card */}
-          <div className="bg-white rounded-xl shadow-md overflow-hidden">
+          <div className="border border-white rounded-xl shadow-md overflow-hidden">
             <div className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -171,7 +171,7 @@ const AdminProfile = () => {
           </div>
 
           {/* Users Card */}
-          <div className="bg-white rounded-xl shadow-md overflow-hidden">
+          <div className="border border-white rounded-xl shadow-md overflow-hidden">
             <div className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -189,8 +189,8 @@ const AdminProfile = () => {
         </div>
 
         {/* Stats Visualization */}
-        <div className="bg-white rounded-xl shadow-md overflow-hidden mb-8 p-6">
-          <h2 className="text-xl font-bold text-gray-800 mb-4">Statistics Overview</h2>
+        <div className="border border-white rounded-xl shadow-md overflow-hidden mb-8 p-6">
+          <h2 className="text-xl font-bold  mb-4">Statistics Overview</h2>
           
           {/* Simple Bar Chart */}
           <div className="h-64 flex items-end space-x-2 mt-8">
@@ -203,7 +203,7 @@ const AdminProfile = () => {
                   adminStats?.stats?.totalUsers || 1
                 )) * 100}%` }}
               ></div>
-              <span className="mt-2 text-sm text-gray-600">Posts</span>
+              <span className="mt-2 text-sm ">Posts</span>
             </div>
             <div className="flex-1 flex flex-col items-center">
               <div 
@@ -214,7 +214,7 @@ const AdminProfile = () => {
                   adminStats?.stats?.totalUsers || 1
                 )) * 100}%` }}
               ></div>
-              <span className="mt-2 text-sm text-gray-600">Comments</span>
+              <span className="mt-2 text-sm ">Comments</span>
             </div>
             <div className="flex-1 flex flex-col items-center">
               <div 
@@ -225,15 +225,15 @@ const AdminProfile = () => {
                   adminStats?.stats?.totalUsers || 1
                 )) * 100}%` }}
               ></div>
-              <span className="mt-2 text-sm text-gray-600">Users</span>
+              <span className="mt-2 text-sm ">Users</span>
             </div>
           </div>
         </div>
 
         {/* Tags Management */}
-        <div className="bg-white rounded-xl shadow-md overflow-hidden p-6">
+        <div className="border border-white rounded-xl shadow-md overflow-hidden p-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-            <h2 className="text-xl font-bold text-gray-800">Manage Tags</h2>
+            <h2 className="text-xl font-bold ">Manage Tags</h2>
             
             {/* Add Tag Form */}
             <form onSubmit={handleSubmit((data) => addTag(data.tagName))} className="mt-4 md:mt-0">

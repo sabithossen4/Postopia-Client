@@ -24,7 +24,6 @@ const MyPosts = () => {
         }
       }
     };
-
     fetchPosts();
   }, [user]);
 
@@ -61,10 +60,10 @@ const MyPosts = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen  py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-800">My Posts</h2>
+          <h2 className="text-2xl font-bold ">My Posts</h2>
           <Link
             to="/dashboard/add-post"
             className="px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700"
@@ -74,7 +73,7 @@ const MyPosts = () => {
         </div>
 
         {posts.length === 0 ? (
-          <div className="bg-white shadow-md rounded-lg p-6 text-center">
+          <div className="border border-white shadow-md rounded-lg p-6 text-center">
             <p className="text-gray-600">You haven't created any posts yet.</p>
             <Link
               to="/dashboard/add-post"

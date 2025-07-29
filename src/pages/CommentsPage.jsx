@@ -13,22 +13,22 @@ const CommentsPage = () => {
   const [modalContent, setModalContent] = useState(null);
   const navigate = useNavigate();
 
-  // স্ট্যাটিক ফিডব্যাক অপশন
+  // Static feedback options
   const feedbackOptions = [
-    { value: 'spam', label: 'এটি স্প্যাম' },
-    { value: 'inappropriate', label: 'অনুপযুক্ত কন্টেন্ট' },
-    { value: 'offensive', label: 'আপত্তিকর ভাষা' }
+    { value: 'spam', label: 'This is spam' },
+    { value: 'inappropriate', label: 'Inappropriate content' },
+    { value: 'offensive', label: 'Offensive language' }
   ];
 
-  // পোস্টের কমেন্ট লোড করুন
+  // Load post comments
   useEffect(() => {
     const fetchComments = async () => {
       try {
         const res = await axios.get(`https://assignment-12-server-sigma-red.vercel.app/comments/${postId}`);
         setComments(res.data);
       } catch (error) {
-        console.error('কমেন্ট লোড করতে সমস্যা:', error);
-        Swal.fire('ত্রুটি', 'কমেন্ট লোড করতে ব্যর্থ', 'error');
+        console.error('Error loading comments:', error);
+        Swal.fire('Error', 'Failed to load comments', 'error');
       } finally {
         setLoading(false);
       }
@@ -37,7 +37,7 @@ const CommentsPage = () => {
     fetchComments();
   }, [postId]);
 
-  // ফিডব্যাক সিলেক্ট হ্যান্ডলার
+  // Handle feedback selection
   const handleFeedbackChange = (commentId, value) => {
     setSelectedFeedback(prev => ({
       ...prev,
@@ -45,7 +45,7 @@ const CommentsPage = () => {
     }));
   };
 
-  // রিপোর্ট সাবমিট হ্যান্ডলার
+  // Handle report submission
   const handleReport = async (commentId) => {
     if (!selectedFeedback[commentId]) return;
 
@@ -55,75 +55,75 @@ const CommentsPage = () => {
         feedback: selectedFeedback[commentId]
       });
 
-      // রিপোর্ট সাবমিটের পর বাটন ডিসেবল করুন
+      // Reset feedback after reporting
       setSelectedFeedback(prev => ({
         ...prev,
         [commentId]: null
       }));
 
-      Swal.fire('রিপোর্টেড!', 'আপনার রিপোর্ট জমা হয়েছে', 'success');
+      Swal.fire('Reported!', 'Your report has been submitted', 'success');
     } catch (error) {
-      Swal.fire('ত্রুটি', 'রিপোর্ট জমা দিতে ব্যর্থ', 'error');
+      Swal.fire('Error', 'Failed to submit report', 'error');
     }
   };
 
-  // সম্পূর্ণ কমেন্ট দেখানোর মোডাল
+  // Show full comment in a modal
   const showFullComment = (comment) => {
     setModalContent(
       <div className="p-4">
-        <h3 className="text-lg font-bold mb-2">{comment.authorName}-এর কমেন্ট</h3>
+        <h3 className="text-lg font-bold mb-2">Comment by {comment.authorName}</h3>
         <p className="text-gray-700 mb-4">{comment.text}</p>
         <div className="text-sm text-gray-500">
-          পোস্ট করা: {new Date(comment.createdAt).toLocaleString()}
+          Posted on: {new Date(comment.createdAt).toLocaleString()}
         </div>
         <button
           onClick={() => setModalContent(null)}
           className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
         >
-          বন্ধ করুন
+          Close
         </button>
       </div>
     );
   };
 
   if (loading) {
-    return <div className="text-center py-12">কমেন্ট লোড হচ্ছে...</div>;
+    return <div className="text-center py-12">Loading comments...</div>;
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen   py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold text-gray-800">পোস্ট কমেন্টস</h1>
+          <h1 className="text-2xl font-bold ">Post Comments</h1>
           <button
             onClick={() => navigate(-1)}
             className="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300"
           >
-            পোস্টে ফিরে যান
+            Back to Post
           </button>
         </div>
 
         {comments.length === 0 ? (
-          <div className="bg-white shadow rounded-lg p-6 text-center">
-            <p className="text-gray-600">কোনো কমেন্ট নেই। প্রথম কমেন্ট করুন!</p>
+          <div className="bg-white text-black shadow rounded-lg p-6 text-center">
+            <p className="text-gray-600">No comments yet. Be the first to comment!</p>
           </div>
         ) : (
-          <div className="bg-white shadow rounded-lg overflow-hidden">
+          <div className="bg-white text-black shadow rounded-lg overflow-hidden">
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
+                <thead className="bg-gray-50 text-black">
                   <tr>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      কমেন্টার
+                      Commenter
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      কমেন্ট
+                      Comment
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      ফিডব্যাক
+                      Feedback
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      একশন
+                      Action
                     </th>
                   </tr>
                 </thead>
@@ -158,7 +158,7 @@ const CommentsPage = () => {
                                 onClick={() => showFullComment(comment)}
                                 className="text-blue-600 hover:text-blue-800 ml-1"
                               >
-                                আরো পড়ুন
+                                Read more
                               </button>
                             </>
                           ) : (
@@ -172,7 +172,7 @@ const CommentsPage = () => {
                           onChange={(e) => handleFeedbackChange(comment._id, e.target.value)}
                           className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
                         >
-                          <option value="">ফিডব্যাক নির্বাচন করুন</option>
+                          <option value="">Select Feedback</option>
                           {feedbackOptions.map(option => (
                             <option key={option.value} value={option.value}>
                               {option.label}
@@ -184,9 +184,13 @@ const CommentsPage = () => {
                         <button
                           onClick={() => handleReport(comment._id)}
                           disabled={!selectedFeedback[comment._id]}
-                          className={`px-3 py-1 rounded-md text-white ${selectedFeedback[comment._id] ? 'bg-red-600 hover:bg-red-700' : 'bg-gray-400 cursor-not-allowed'}`}
+                          className={`px-3 py-1 rounded-md text-white ${
+                            selectedFeedback[comment._id]
+                              ? 'bg-red-600 hover:bg-red-700'
+                              : 'bg-gray-400 cursor-not-allowed'
+                          }`}
                         >
-                          রিপোর্ট করুন
+                          Report
                         </button>
                       </td>
                     </tr>
@@ -198,10 +202,10 @@ const CommentsPage = () => {
         )}
       </div>
 
-      {/* সম্পূর্ণ কমেন্টের মোডাল */}
+      {/* Full comment modal */}
       {modalContent && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg max-w-md w-full">
+          <div className="bg-white text-black rounded-lg max-w-md w-full">
             {modalContent}
           </div>
         </div>

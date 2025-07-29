@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import Select from 'react-select'; 
 import { AuthContext } from '../context/AuthProvider';
+import Loading from './Loading';
 
 const AddPost = () => {
   const { user } = useContext(AuthContext);
@@ -92,14 +93,14 @@ const AddPost = () => {
   };
 
   if (loading) {
-    return <div className="text-center py-12">Loading...</div>;
+    return <div className="text-center py-12"><Loading /></div>;
   }
 
   // মেম্বার না হলে এবং ৫টি পোস্ট করে থাকলে শুধু মেম্বারশিপ বাটন দেখাবে
   if (!user?.isMember && postCount >= 5) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 text-black">
+        <div className="max-w-md w-full bg-white text-black p-8 rounded-lg shadow-md">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Post Limit Reached</h2>
             <p className="text-gray-600 mb-6">
@@ -120,10 +121,10 @@ const AddPost = () => {
 
   // নরমাল পোস্ট ফর্ম
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen  px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-        <div className="bg-white shadow-md rounded-lg p-6">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Create New Post</h2>
+        <div className="border border-white  shadow-md rounded-lg p-6">
+          <h2 className="text-2xl font-bold  mb-6">Create New Post</h2>
           
           <form onSubmit={handleSubmit}>
             {/* Author Info (auto-filled) */}
@@ -150,7 +151,7 @@ const AddPost = () => {
 
             {/* Post Title */}
             <div className="mb-6">
-              <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="title" className="block text-sm font-medium  mb-2">
                 Post Title *
               </label>
               <input
@@ -166,7 +167,7 @@ const AddPost = () => {
 
             {/* Post Description */}
             <div className="mb-6">
-              <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="description" className="block text-sm font-medium  mb-2">
                 Post Description *
               </label>
               <textarea
@@ -182,7 +183,7 @@ const AddPost = () => {
 
             {/* Tags (React-select) */}
             <div className="mb-6">
-              <label htmlFor="tags" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="tags" className="block text-sm font-medium  mb-2">
                 Tags (Select at least one)
               </label>
               <Select

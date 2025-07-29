@@ -3,9 +3,11 @@ import { Link, NavLink } from "react-router";
 import { AuthContext } from "../context/AuthProvider";
 import { toast } from "react-toastify";
 import NotificationBell from "./NotificationBell";
+import useAdmin from "../hooks/useAdmin";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+   const [isAdmin] = useAdmin();
 
   const handleLogOut = () => {
     logOut()
@@ -27,10 +29,11 @@ const Navbar = () => {
       </li>      
       <li className="font-bold">
         <NavLink to="/leaderboard" >Leaderboard</NavLink>
-      </li>     
-      <li className="font-bold">
-        <NavLink to="/admin">AdminDashboard</NavLink>
-      </li>      
+      </li>           
+      {user && isAdmin && (
+  <li className="font-bold"><NavLink to="/admin">AdminDashboard</NavLink></li>
+)}
+    
     </>
   );
 

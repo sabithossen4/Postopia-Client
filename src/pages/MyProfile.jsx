@@ -45,10 +45,10 @@ const MyProfile = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen  py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Profile Header Section */}
-        <div className="bg-white shadow-md rounded-lg overflow-hidden mb-8">
+        <div className="bg-white  shadow-md rounded-lg overflow-hidden mb-8">
           <div className="md:flex">
             <div className="md:w-1/3 p-6 flex flex-col items-center">
               <img
@@ -56,7 +56,7 @@ const MyProfile = () => {
                 alt="Profile"
                 className="w-32 h-32 rounded-full border-4 border-white shadow-md"
               />
-              <button className="mt-4 text-sm text-blue-600 hover:text-blue-800">
+              <button className="mt-4 text-sm text-blue-600 hover:text-blue-900 hover:font-extrabold">
                 Change Photo
               </button>
             </div>
@@ -91,15 +91,15 @@ const MyProfile = () => {
               
               {/* Stats Section */}
               <div className="grid grid-cols-3 gap-4">
-                <div className="bg-blue-50 p-3 rounded-lg text-center">
+                <div className="bg-blue-50 text-black p-3 rounded-lg text-center">
                   <p className="text-sm text-blue-600">Total Posts</p>
                   <p className="text-2xl font-bold">{stats.postCount}</p>
                 </div>
-                <div className="bg-green-50 p-3 rounded-lg text-center">
+                <div className="bg-green-50 text-black p-3 rounded-lg text-center">
                   <p className="text-sm text-green-600">Total Upvotes</p>
                   <p className="text-2xl font-bold">{stats.totalUpvotes}</p>
                 </div>
-                <div className="bg-red-50 p-3 rounded-lg text-center">
+                <div className="bg-red-50 text-black p-3 rounded-lg text-center">
                   <p className="text-sm text-red-600">Total Downvotes</p>
                   <p className="text-2xl font-bold">{stats.totalDownvotes}</p>
                 </div>
@@ -109,7 +109,7 @@ const MyProfile = () => {
         </div>
 
         {/* Recent Posts Section */}
-        <div className="bg-white shadow-md rounded-lg p-6">
+        <div className="bg-white text-black shadow-md rounded-lg p-6">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-bold text-gray-800">Recent Posts</h2>
             <Link
