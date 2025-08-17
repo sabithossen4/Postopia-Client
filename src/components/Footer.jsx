@@ -21,10 +21,10 @@ const Footer = () => {
         <div>
           <h2 className="text-xl font-semibold mb-4">Resources</h2>
           <ul className="space-y-2">
-            <li><a href="/" className="hover:text-purple-800">Home</a></li>
-            <li><a href="/" className="hover:text-purple-800">Privacy Policy</a></li>
+            <li><a href="/" className="hover:text-purple-800">Home</a></li>            
             <li><a href="/membership" className="hover:text-purple-800">Membership</a></li>
-            <li><a href="/#" className="hover:text-purple-800">About Us</a></li>
+            <li><a href="/contact" className="hover:text-purple-800">Contact</a></li>
+            <li><a href="/about" className="hover:text-purple-800">About</a></li>
           </ul>
         </div>
 

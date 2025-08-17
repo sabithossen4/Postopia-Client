@@ -34,12 +34,3 @@ const Leaderboard = () => {
 };
 
 export default Leaderboard;
-
-
-
-
-dsufgoisdjh
-kdjsdkjg
-kdsjfksjf
-kdsjfksjf
-djjfsdj

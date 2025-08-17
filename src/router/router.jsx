@@ -20,6 +20,9 @@ import ManageUsers from "../pages/ManageUsers";
 import ReportedComments from "../pages/ReportedComments";
 import MakeAnnouncement from "../pages/MakeAnnouncement";
 import AdminRoute from "./AdminRoute";
+import About from "../components/About";
+import Contact from "../components/Contact";
+
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +40,14 @@ export const router = createBrowserRouter([
       {
         path: "/leaderboard",
         element: <Leaderboard />,
+      },
+      {
+        path: "/about",
+        element: <About/>,
+      },
+      {
+        path: "/contact",
+        element: <Contact/>,
       },
       {
         path: "/admin",

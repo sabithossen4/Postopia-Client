@@ -24,21 +24,35 @@ const Navbar = () => {
       <li className="font-bold text-[15px]">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li className="font-bold text-[15px]">
+
+      {user &&(
+          <li className="font-bold text-[15px]">
         <NavLink to="/membership">Membership</NavLink>
-      </li>      
-      <li className="font-bold text-[15px]">
+      </li>             
+      )}
+      {user &&( 
+        <li className="font-bold text-[15px]">
         <NavLink to="/leaderboard" >Leaderboard</NavLink>
-      </li>           
+      </li> 
+      )}
+               
       {user && isAdmin && (
   <li className="font-bold text-[15px]"><NavLink to="/admin">AdminDashboard</NavLink></li>
+  
 )}
+    <li className="font-bold text-[15px]">
+        <NavLink to="/about">About</NavLink>
+      </li>
+  <li className="font-bold text-[15px]">
+        <NavLink to="/contact">Contact</NavLink>
+      </li>
+
     
     </>
   );
 
   return (
-    <div className="top-0 z-50 w-full shadow-sm bg-base-100">
+    <div className=" shadow-sm bg-base-100 fixed top-0 left-0 w-full z-50">
       <div className="navbar max-w-7xl mx-auto">
         {/* Navbar Start */}
         <div className="navbar-start">
