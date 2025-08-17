@@ -25,7 +25,7 @@ const Pagination = () => {
         {posts.map(post => (
           <div key={post._id}>
             <h2>{post.title}</h2>
-            {/* তোমার পোস্ট কার্ড ডিজাইন এখানে থাকবে */}
+            
           </div>
         ))}
       </div>

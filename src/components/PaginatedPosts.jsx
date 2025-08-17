@@ -13,7 +13,9 @@ const PaginatedPosts = () => {
 
   useEffect(() => {
     axios
-      .get(`https://assignment-12-server-sigma-red.vercel.app/posts?page=${currentPage}&sort=${sortBy}`)
+      .get(
+        `https://assignment-12-server-sigma-red.vercel.app/posts?page=${currentPage}&sort=${sortBy}`
+      )
       .then((res) => {
         setPosts(res.data.posts);
         setTotalCount(res.data.totalCount);
@@ -30,7 +32,7 @@ const PaginatedPosts = () => {
   };
 
   return (
-    <div className="px-4 py-8   ">
+    <div className="px-4 py-8">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold">Posts</h2>
         <select
@@ -50,7 +52,7 @@ const PaginatedPosts = () => {
           {posts.map((post) => (
             <div
               key={post._id}
-              className="border border-purple-600 rounded-md p-4  shadow hover:shadow-lg transition"
+              className="border border-purple-600 rounded-md p-4 shadow hover:shadow-lg transition"
             >
               {/* Author Info */}
               <div className="flex items-center gap-2 mb-2">
@@ -67,24 +69,37 @@ const PaginatedPosts = () => {
                 </div>
               </div>
 
-              {/* Title Link */}
-              <Link
-                to={`/post/${post._id}`}
-                className="text-2xl font-bold hover:underline block mb-2"
+              {/* Title */}
+              <p className="text-2xl font-bold hover:underline block mb-2"
               >
                 {post.title}
-              </Link>
+              </p>
+
+              {/* 🔥 Short description */}
+              <p className="text-sm text-gray-300 mb-3">
+                {post.description?.slice(0, 80) || "No description available..."}
+                {post.description?.length > 80 && "..."}
+              </p>
 
               {/* Tags */}
               <p className="text-sm text-purple-500 mb-2">
                 #{post.tags?.[0] || "General"}
               </p>
 
-            
-              
+              {/* 🔥 See More button (right aligned) */}
+              <div className="flex justify-end">
+                <Link
+                  to={`/post/${post._id}`}
+                  className="inline-block mt-2 px-3 py-1 bg-purple-600 text-white rounded hover:bg-purple-900 transition"
+                >
+                  Details
+                </Link>
+              </div>
 
               {/* Vote Button */}
-              <VoteButton postId={post._id} />
+              <div className="mt-3">
+                <VoteButton postId={post._id} />
+              </div>
             </div>
           ))}
         </div>
