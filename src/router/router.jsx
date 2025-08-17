@@ -22,12 +22,14 @@ import MakeAnnouncement from "../pages/MakeAnnouncement";
 import AdminRoute from "./AdminRoute";
 import About from "../components/About";
 import Contact from "../components/Contact";
+import ErrorPage from "../pages/ErrorPage";
 
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: HomeLayout,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
