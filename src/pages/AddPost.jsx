@@ -96,7 +96,7 @@ const AddPost = () => {
     return <div className="text-center py-12"><Loading /></div>;
   }
 
-  // মেম্বার না হলে এবং ৫টি পোস্ট করে থাকলে শুধু মেম্বারশিপ বাটন দেখাবে
+  
   if (!user?.isMember && postCount >= 5) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50 text-black">
@@ -119,7 +119,7 @@ const AddPost = () => {
     );
   }
 
-  // নরমাল পোস্ট ফর্ম
+  
   return (
     <div className="min-h-screen  px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
@@ -183,7 +183,7 @@ const AddPost = () => {
 
             {/* Tags (React-select) */}
             <div className="mb-6">
-              <label htmlFor="tags" className="block text-sm font-medium  mb-2">
+              <label htmlFor="tags" className="block text-sm font-medium  mb-2 ">
                 Tags (Select at least one)
               </label>
               <Select
@@ -192,7 +192,7 @@ const AddPost = () => {
                 options={tags}
                 isMulti
                 onChange={handleTagChange}
-                className="basic-multi-select"
+                className="basic-multi-select text-purple-600"
                 classNamePrefix="select"
                 required
               />
