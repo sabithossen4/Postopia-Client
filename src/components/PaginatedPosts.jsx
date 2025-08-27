@@ -93,7 +93,7 @@ const PaginatedPosts = () => {
     <div className="container mx-auto px-4 py-8">
       {/* Header Section */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-white mb-4">Community Posts</h1>
+        <h1 className="text-4xl font-bold text-purple-600 mb-4">Community Posts</h1>
         <p className="text-gray-400 max-w-2xl mx-auto">
           Discover the latest discussions, tutorials, and insights from our community members.
         </p>

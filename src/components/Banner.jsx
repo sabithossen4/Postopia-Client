@@ -18,7 +18,7 @@ const Banner = () => {
   };
 
   return (
-    <div className=" w-full  mx-auto px-4 mt-6 space-y-8">
+    <div className=" w-full  mx-auto px-4  ">
       {/*  Banner + Search */}
       <div className="bg-[url(/bg.jpg)] p-10 rounded-lg shadow-md">
         <h1 className="text-purple-700 text-3xl font-bold mb-4 text-center">Welcome to Postopia</h1>

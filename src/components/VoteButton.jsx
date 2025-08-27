@@ -90,7 +90,7 @@ const VoteButton = ({ postId, initialLikes, initialDislikes }) => {
   };
 
   return (
-    <div className="flex items-center justify-between gap-4">
+    <div className="flex items-center justify-between text-white gap-4">
       <div className="flex items-center gap-1">
         <button
           onClick={handleLike}
